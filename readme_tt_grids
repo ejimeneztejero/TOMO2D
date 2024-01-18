@@ -1,0 +1,53 @@
+# TomoGrids
+
+- Author Clara Estela Jimenez Tejero (ejimenez@icm.csic.es)
+
+## Overview
+- This program converts the output data from Tomo2D into regular depth and time grids, using linear interpolation.
+- It is used to compare WAS inversion models with a multichannel seismic line.
+- To obtain reliable results, the grid size must be chosen carefully.
+- For comparison with multichannel, dx must be the distance between CMPs (Common Midpoint).
+- Parameter dz should be similar to the bathymetry resolution (good values between dz=0.01 and dz=0.001 km).
+- Parameter dt should be the same as for multichannel.
+- Velocities units are km/s, length, depth in km and time in seconds.
+
+## Compilation:
+- Automatic:
+	make
+- Manual:
+	gfortran tt_grids.f90 -o tt_grids
+
+## Execution on local computer, with example flags:
+tt_grids -v vel.in -r refl.in -d dws.in -dx 0.00625 -dz 0.01 -dt 0.004
+
+## Execution on clusters (e.g., cesga, script tomogrids_cesga.sh):
+sbatch tomogrids_cesga.sh
+It is parallelized with openmp. For more or fewer threads, change the number in the header line #SBATCH -c 20)
+
+## FLAGS and UNITS
+-Files and parameters are given through flags, directly on the command line:
+        -flag "-v" for velocity tomo2d file (mandatory flag). 
+        -flag "-dx" for resolution in x  (mandatory flag). 
+        -flag "-dz" for resolution in z  (mandatory flag). 
+        -flag "-dt" for resolution in time  (mandatory flag). 
+        -flag "-r" for reflector file (optional flag)
+        -flag "-d" for dws file (optional flag)
+        -flag "-rx" for x resolution or number of decimals, default is 5 decimals (optional flag)
+        -flag "-rz" for z resolution or number of decimals, default is 3 decimals (optional flag)
+        -flag "-rt" for time resolution or number of decimals, default is 3 decimals (optional flag)
+        -flag "-rv" for velocity resolution or number of decimals, default is 3 decimals (optional flag)
+        -flag "-rd" for dws resolution or number of decimals, default is 2 decimals (optional flag)
+
+## OUTPUTS
+
+- There are several outputs, always indicating the model name and the dx, dz and dt parameters.
+- The formats for the outputs are:
+	- Velocity output: x,z,v
+	- dws output: x,z,dws
+	- reflector output: x, refl
+	- bathymetry output: x, bat
+	- Velocity and bathymetry input also appear for you to check if they are correct
+
+# Grid warnings
+- If you get warnings that the grid is not very reliable, pay attention to them.
+- Especially improve the dz, as it will better adjust all observables to the time grid.
