@@ -5,7 +5,7 @@ CC  = gcc
 FC = gfortran
 CFLAGS = -ansi -O3 -fpermissive #-pg
 FFLAGS = -O3 -fopenmp
-HOME = /opt/waterTomo #CUIDADO: cambiar al path adecuado!!
+HOME = /opt/waterTomo #warning, change to the path where you keep this folder
 PWD = ${HOME}
 INCLUDE = -I${PWD}
 
