@@ -18,8 +18,9 @@
 
 #Models
 vel="-v vel.in"
-#refl="-r refl.in"
 #dws="-d dws.in"
+#refl="-r refl.in" #for one reflector
+#refl="-r refl.in -r refl2.in -r refl3.in" #example for three reflectors
 
 #Grids
 dx="-dx 0.2"
