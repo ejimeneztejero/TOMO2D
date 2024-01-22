@@ -25,7 +25,6 @@ real, allocatable	:: dws(:,:),dwsz(:,:),dwsxz(:,:),dws_time(:,:)
 character(len=200) 	:: arg,flag,str
 character(len=200)	:: vel_file,dws_file
 character(len=200)	:: dx_str,dz_str,dt_str
-!,rx_str,rz_str,rt_str,rv_str,rd_str,numrefl_str
 character(len=200)	:: file_out
 character(len=200)	:: format_xtv,format_xtd,format_xt,format_xz,format_xzv,format_xzd,format_xr,format_xb
 character(len=50)	:: format_x,format_z,format_t,format_v,format_d
