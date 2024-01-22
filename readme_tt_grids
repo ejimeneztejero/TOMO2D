@@ -30,7 +30,7 @@ It is parallelized with openmp. For more or fewer threads, change the number in 
         -flag "-dx" for resolution in x  (mandatory flag). 
         -flag "-dz" for resolution in z  (mandatory flag). 
         -flag "-dt" for resolution in time  (mandatory flag). 
-        -flag "-r" for reflector file (optional flag)
+        -flag "-r" for reflector files (optional flag). Add as many as you have, for example for 3 reflectors: "-r refl1.dat -r refl2.dat -r refl3.dat"
         -flag "-d" for dws file (optional flag)
         -flag "-rx" for x resolution or number of decimals, default is 5 decimals (optional flag)
         -flag "-rz" for z resolution or number of decimals, default is 3 decimals (optional flag)
